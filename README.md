@@ -1,3 +1,15 @@
+# UPDATE
+
+I decided to step through the disassembly of ReadThreadProfilingData, and at first glance it actually seems like there's a clear answer: this API was never actually implemented for user-mode, despite what the documentation seems to claim.
+
+The disassembly for the ReadThreadProfilingData call _directly contains the call to rdpmc_. It does not do a syscall, nor does it appear to copy data out of some internal storage where the kernel would have left the results of the rdpmc.
+
+So _perhaps_ what happened here is that HPC retrieval was implemented only for kernel driver code, and then there was a branch added to avoid calling rdpmc if it was not called from ring-0? Am I reading this right?
+
+If that's the case, I suppose it is probably too big an ask for it to _actually_ be implemented at some point in the future... but if somehow it isn't, this would be a really great API to have working for user mode. Just a syscall in that would do the rdpmc's at ring-0 - even if it required setting a group policy or whatnot for security purposes - would be very helpful!
+
+#
+
 # Can you get this code to work?
 
 I can't. So far, no one can. Maybe you will be the one?
