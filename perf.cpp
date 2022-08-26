@@ -29,7 +29,7 @@ int main(int ArgCount, char **Args)
         if(KESHCCError == 0)
         {
             HANDLE Perf;
-            DWORD ETPError = EnableThreadProfiling(Thread, THREAD_PROFILING_FLAG_DISPATCH, 0xffff, &Perf);
+            DWORD ETPError = EnableThreadProfiling(Thread, THREAD_PROFILING_FLAG_DISPATCH, 0xf, &Perf);
             if(ETPError == ERROR_SUCCESS)
             {
                 for(int Repeat = 0; Repeat < 10; ++Repeat)
