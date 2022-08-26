@@ -24,7 +24,7 @@ but to no avail. I've yet to find any magic combination of API modifications tha
 
 ### A request for documentation was filed, but unfortunatley Microsoft closed it without adding any.
 
-You can find it [https://github.com/MicrosoftDocs/windows-driver-docs-ddi/issues/1039](here). It sounds like perhaps the documentation team doesn't actually know how to make it work either, so it may require a kernel dev or someone with similarly deep knowledge of the internals to explain what's going wrong.
+You can find it [here](https://github.com/MicrosoftDocs/windows-driver-docs-ddi/issues/1039). It sounds like perhaps the documentation team doesn't actually know how to make it work either, so it may require a kernel dev or someone with similarly deep knowledge of the internals to explain what's going wrong.
 
 One possibility is that this API was never actually hooked up to the performance counters for some reason. If that's the case, it would be fantastic if someone could put that on a to-do list somewhere. This API is exactly what you would want for retrieving these numbers: extremely simple, direct, and real-time. It'd allow everyone to add in-line profiling of HPCs with just a few calls, in a standard way, without needing to install any weird kernel drivers. 
 
